@@ -18,6 +18,7 @@ namespace WebAPIProject.Interfaces
         Task <List<Stockage>> GetAllAsync(QueryObject query);
 
         Task <Stockage ?> GetByIdAsync(int id);
+        Task<Stockage?> GetBySymboleAsync(string symbole);
 
         Task <Stockage> CreateAsync(Stockage stockageModel);
 

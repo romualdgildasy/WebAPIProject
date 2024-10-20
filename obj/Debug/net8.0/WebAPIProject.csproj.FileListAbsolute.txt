@@ -146,3 +146,4 @@ C:\Users\MALICK\source\repos\Web_API_C#\WebAPIProject\obj\Debug\net8.0\refint\We
 C:\Users\MALICK\source\repos\Web_API_C#\WebAPIProject\obj\Debug\net8.0\WebAPIProject.pdb
 C:\Users\MALICK\source\repos\Web_API_C#\WebAPIProject\obj\Debug\net8.0\WebAPIProject.genruntimeconfig.cache
 C:\Users\MALICK\source\repos\Web_API_C#\WebAPIProject\obj\Debug\net8.0\ref\WebAPIProject.dll
+C:\Users\MALICK\source\repos\Web_API_C#\WebAPIProject\obj\Debug\net8.0\WebAPIProject.sourcelink.json

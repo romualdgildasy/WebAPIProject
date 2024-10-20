@@ -9,5 +9,6 @@ namespace WebAPIProject.Interfaces
     public interface IPortfolioRepository
     {
         Task<List<Stockage>> GetUserPortfolio(AppUser user);
+        Task<Portfolio> CreatedAsync(Portfolio portfolio);
     }
 }

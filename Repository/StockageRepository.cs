@@ -85,6 +85,11 @@ namespace WebAPIProject.Repository
             /*return await _context.Stockages.FindAsync(id);*/
         }
 
+        public async Task<Stockage?> GetBySymboleAsync(string symbole)
+        {
+            return await _context.Stockages.FirstOrDefaultAsync(s => s.Symbole == symbole);
+        }
+
         public Task<bool> StockExist(int id)
         {
             return _context.Stockages.AnyAsync(s=> s.Id == id);
