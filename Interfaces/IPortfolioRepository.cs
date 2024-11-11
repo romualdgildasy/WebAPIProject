@@ -10,5 +10,6 @@ namespace WebAPIProject.Interfaces
     {
         Task<List<Stockage>> GetUserPortfolio(AppUser user);
         Task<Portfolio> CreatedAsync(Portfolio portfolio);
+        Task<Portfolio> DeletePortfolio( AppUser appUser, string symbole);
     }
 }
