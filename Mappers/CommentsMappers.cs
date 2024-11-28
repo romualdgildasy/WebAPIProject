@@ -17,6 +17,7 @@ namespace WebAPIProject.Mappers
                 Titre = commentsModel.Titre,
                 Contenu = commentsModel.Contenu,
                 DateCreation = commentsModel.DateCreation,
+                CreatedBy =  commentsModel.AppUser.UserName,
                 StockageId = commentsModel.StockageId,
             };
         }

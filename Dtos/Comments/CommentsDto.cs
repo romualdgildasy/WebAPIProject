@@ -13,6 +13,7 @@ namespace WebAPIProject.Dtos.Comments
 
         public string Contenu { get; set; } = string.Empty;
         public DateTime DateCreation { get; set; } = DateTime.Now;
+        public  string CreatedBy {get;set;} = string.Empty;
         public int ? StockageId {get;set;}
 
 

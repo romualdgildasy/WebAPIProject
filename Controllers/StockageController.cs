@@ -42,7 +42,7 @@ namespace WebAPIProject.Controllers
                 //rn ajoutant g=query dans le getall c'est pouvoir envoyer notre object de requete
                 var stockages = await _stockageRepo.GetAllAsync(query);
                 /*ici nous allons ajouter la selection pour pouvoir faire un mappage */
-                var stockageDto = stockages.Select(s=> s.ToStockageDto());
+                var stockageDto = stockages.Select(s=> s.ToStockageDto()).ToList();
                 return Ok (stockages);
 
             }

@@ -45,7 +45,7 @@ namespace WebAPIProject.Repository
         {
             /*en ajoutant un objet de requete la fonction de doit plus retourner un async*/
             /*AsQueryable() convertit l'ensemble en une requête qui peut être modifiée dynamiquement.*/
-            var stockages = _context .Stockages.Include(c=> c.Comments).AsQueryable();
+            var stockages = _context .Stockages.Include(c=> c.Comments).ThenInclude(a => a.AppUser).AsQueryable();
              /*Si query.NomCompagnie n'est pas null, vide ou constitué uniquement d'espaces blancs, 
              alors la requête stockages est filtrée pour ne contenir que 
              les enregistrements où NomCompagnie contient la chaîne spécifiée dans query.NomCompagnie.*/

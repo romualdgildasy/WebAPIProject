@@ -27,5 +27,8 @@ namespace WebAPIProject.Models
         public int ? StockageId {get;set;}
 
         public Stockage? Stockage {get;set;}
+        public string AppUserId {get;set;}
+         
+        public AppUser AppUser {get;set;}
     }
 }

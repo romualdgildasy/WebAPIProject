@@ -4,6 +4,9 @@ using WebAPIProject.Dtos.Comments;
 using WebAPIProject.Mappers;
 using WebAPIProject.Dtos.Stockage;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
+using WebAPIProject.Models;
+using WebAPIProject.Extension;
 
 namespace WebAPIProject.Controllers
 {
@@ -13,10 +16,13 @@ namespace WebAPIProject.Controllers
     {
         private readonly ICommentsRepository _commentsRepo;
         private readonly IStockageRepository _stockageRepo;
-        public CommentsController (ICommentsRepository commentsRepo,IStockageRepository stockageRepo)
+        private readonly UserManager<AppUser> _userManager;
+        public CommentsController (ICommentsRepository commentsRepo,IStockageRepository stockageRepo,
+        UserManager<AppUser> userManager)
         {
             _commentsRepo = commentsRepo;
             _stockageRepo = stockageRepo;
+            _userManager = userManager;
 
         }
 
@@ -62,7 +68,14 @@ namespace WebAPIProject.Controllers
             {
                 return BadRequest("Stock does not exist");
             }
+
+            // recupeation des noms des utilisateur dans la bd apres un commmentaire
+            var username = User.GetUsername();
+            var appUser = await _userManager.FindByNameAsync(username);
+
             var commentsModel = commentsDto.ToCommentsFromCreate(StockageId);
+            // recuperation de l'id dans l'application user
+            commentsModel.AppUserId = appUser.Id;
             await _commentsRepo.CreateAsync(commentsModel);
             return CreatedAtAction(nameof(GetById),new {id = commentsModel.Id},commentsModel.ToCommentsDto());
         }
